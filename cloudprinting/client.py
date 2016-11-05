@@ -119,6 +119,8 @@ def submit_job(printer, content, title=None, capabilities=None, tags=None,
     if isinstance(content, (list, tuple)):
         name = content[0]
         content = content[1].read()
+    elif content_type == "url":
+        name = content
     else:
         name = basename(content)
         with open(content, 'rb') as f:
